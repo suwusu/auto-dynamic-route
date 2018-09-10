@@ -16,8 +16,9 @@ yarn add --dev auto-dynamic-routes 或者  npm install都可以
      * routeName:生成的路由文件名
      * firstPathName:目标文件夹名
      * isOnlyIndex:是否只是生成以index结尾的路径
-     * isUseDynamic:是否需要生成动态路由(_替换成:)
+     * isUseDynamic:是否需要生成动态路由
      * isUseNest:是否需要生成嵌套路由(还没做)
+     * filterSuffix:过滤的后缀路径
      */
 
 我包内写着默认值：
@@ -28,7 +29,8 @@ module.exports ={
     firstPathName:'pages',
     isOnlyIndex:true,
     isUseDynamic:true,
-    isUseNest:false
+    isUseNest:false,
+    filterSuffix:'svg,png,jpg,gif,jpeg,json,css,less,sass,html'
 }
 
 ```
