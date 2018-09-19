@@ -1,49 +1,57 @@
-# 自动路由和动态路由
+# auto-dynamic-routes
 
 ## 安装
 
 ```
-yarn add --dev auto-dynamic-routes 或者  npm install都可以
+npm i --save-dev auto-dynamic-routes
+
+yarn add --dev auto-dynamic-routes
 
 ```
 
-## 传參
+```
+这是一款自动路由插件,可以自定义要遍历的位置和输出的位置，以及一些参数传递
+
+```
+
+
+## 参数
 
 ```
 /**
-     * inPath:目标遍历文件夹
-     * outPath:路由输出文件
-     * firstPathName:目标文件夹名
-     * filterFile:只生成的文件路径
-     * isUseDynamic:是否需要生成动态路由
-     * isUseNest:是否需要生成嵌套路由(还没做)
-     * filterSuffix:只生成的后缀路径
+     * inPath:遍历的目标文件夹
+     * outPath:输出目标文件位置
+     * srcDir:遍历的文件夹名
+     * fileName:输出的文件名
+     * filterSuffix:可生成的后缀路径
      */
 
-我包内写着默认值：
-const nodePath = require('path')
-module.exports ={
-    inPath:nodePath.join(__dirname,'../../../src/pages'),
-    outPath:nodePath.join(__dirname,'../../../src/router/newRouter.js'),
-    firstPathName:'pages',
-    filterFile:'index',
-    isUseDynamic:true,
-    isUseNest:false,
-    filterSuffix:'vue,js,html'
+这是我的默认值(不自定义参数就会走我的默认)：
+const path = require('path')
+var params ={
+    fileName:'newRouter.js',
+    inPath:path.resolve(compiler.options.context,'./src/pages'),
+    outPath:path.resolve(compiler.options.context,'./src/router'),
+    srcDir:'pages',
+    filterSuffix:'index.vue'
 }
 
 ```
 
+
 ## 引用
 
+webpack.config.js
+
 ```
-//require引用即可
-const autoRoute = require('auto-dynamic-routes');
-//可以什么也不写调用，也可以自定义上面的所有或者个别参数
-autoRoute();
-包内有文件夹和文件变动监听所以项目启动后可以自动识别修改
+const AutoDynamicPlugin = require('auto-dynamic-routes');  
+ 
+plugins: [
+    new AutoDynamicPlugin({filterSuffix:'index.vue,.detail'})
+]
 
 ``` 
+
 
 ## 生成的路由格式
 
@@ -65,4 +73,3 @@ autoRoute();
 
 ```
 
-## 持续优化中，有什么建议可以随时交流
