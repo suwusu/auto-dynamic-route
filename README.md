@@ -45,10 +45,20 @@ webpack.config.js
 
 ```
 const AutoDynamicPlugin = require('auto-dynamic-routes');  
- 
-plugins: [
-    new AutoDynamicPlugin({filterSuffix:'index.vue,.detail'})
-]
+
+module.exports = {
+  context: path.resolve(__dirname, '../'),
+  entry: {
+    app: './src/main.js'
+  },
+  output: {
+    path: path.resolve(__dirname, '../dist'),
+    filename: 'index_bundle.js'
+  },
+  plugins: [
+    new AutoDynamicPlugin({filterSuffix:'index.vue,detail.vue,.js'})
+  ]
+}
 
 ``` 
 
@@ -73,3 +83,5 @@ plugins: [
 
 ```
 
+
+* [版本更新说明](version/intro.md)
