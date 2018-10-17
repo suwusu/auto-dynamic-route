@@ -33,7 +33,7 @@ var params ={
     inPath:path.resolve(compiler.options.context,'./src/pages'),
     outPath:path.resolve(compiler.options.context,'./src/router'),
     srcDir:'pages',
-    filterSuffix:'index.vue'
+    filterSuffix:'.vue'
 }
 
 ```
