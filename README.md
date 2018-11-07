@@ -1,5 +1,7 @@
 # auto-dynamic-routes
 
+## [版本更新说明](version/intro.md)
+
 ## 安装
 
 ```
@@ -70,18 +72,15 @@ module.exports = {
   export default {routes:[{
     path:'/wslceye/:ww/detail',
     name:'wslceye-ww-detail',
-    component:()=>import('components/wslceye/_ww/detail') 
+    component:require('components/wslceye/_ww/detail').default 
 },{
     path:'/data-adjustment/operate',
     name:'data-adjustment-operate',
-    component:()=>import('pages/data-adjustment/operate') 
+    component:require('pages/data-adjustment/operate').default  
 },{
     path:'/wslceye',
     name:'wslceye',
-    component:()=>import('pages/wslceye') 
+    component:require('pages/wslceye').default 
 }]}
 
 ```
-
-
-* [版本更新说明](version/intro.md)
