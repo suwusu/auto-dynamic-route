@@ -1,6 +1,6 @@
 {
   "name": "auto-dynamic-routes",
-  "version": "2.1.3",
+  "version": "2.2.1",
   "repository" :{ 
     "type" : "git",
     "url" : "https://github.com/suwusu/auto-dynamic-route"
