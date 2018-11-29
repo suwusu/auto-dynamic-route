@@ -72,15 +72,15 @@ module.exports = {
   export default {routes:[{
     path:'/wslceye/:ww/detail',
     name:'wslceye-ww-detail',
-    component:require('components/wslceye/_ww/detail').default 
+    component:()=>import('components/wslceye/_ww/detail')
 },{
     path:'/data-adjustment/operate',
     name:'data-adjustment-operate',
-    component:require('pages/data-adjustment/operate').default  
+    component:()=>import('pages/data-adjustment/operate')
 },{
     path:'/wslceye',
     name:'wslceye',
-    component:require('pages/wslceye').default 
+    component:()=>import('pages/wslceye') 
 }]}
 
 ```
